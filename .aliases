@@ -1,0 +1,73 @@
+echo '~/.bash_aliases.sh'
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=always' # --color=auto
+    alias dir='vdir --color=always'
+
+    alias grep='grep --color=always'
+    alias fgrep='fgrep --color=always'
+    alias egrep='egrep --color=always'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# For Mozc
+alias mozc-config="/usr/lib/mozc/mozc_tool -mode=config_dialog"
+alias mozc-dict="/usr/lib/mozc/mozc_tool --mode=dictionary_tool"
+
+# Aliases for git
+alias gco="git checkout"
+alias gst="git status"
+alias gci="git add . && git commit -a -m"
+alias gdf="git diff"
+alias gbr="git branch"
+alias gad="git add"
+alias gmr="git merge"
+alias glg="git log"
+alias gps="git push"
+alias greset="git reset --hard HEAD^"
+
+# # Aliases for Ruby
+# # see: http://ryan.mcgeary.org/2011/02/09/vendor-everything-still-applies/
+alias b="bundle"
+alias bi="b install --path=vendor/bundle"
+alias binit="bi && b package --all && echo 'vendor/bundle' >> .gitignore"
+alias bil="bi --local"
+alias bu="b update"
+alias be="b exec"
+alias bb="b binstubs"
+
+# creating a new app.
+function rails_new() {
+    if [ $# -ne 1 ]; then
+	echo "railsアプリケーションの名前を指定してください."
+	return 1
+    fi
+    echo "railsアプリケーション $1 を生成します．"
+    rails new $1 --skip-bundle --skip-test-unit # --edge
+}
+
+
+alias term="gnome-terminal"
+
+# tools with emacs
+alias todo="emacs -nw ~/Dropbox/todo/todo.txt"
+alias note="emacs -nw ~/Dropbox/note/index.org"
+
+alias tdls="todo.sh ls"
+alias tdlsa="todo.sh ls '(A)'"
+alias tda="todo.sh add"
+alias tddo="todo.sh do"
+
+alias mew="emacs -e mew &"
+
+alias firefox="firefox >& /dev/null"
