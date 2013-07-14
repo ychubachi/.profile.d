@@ -54,6 +54,11 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 # For livetex
 export MANPATH=$MANPATH:/usr/local/texlive/2013/texmf/doc/man
 export INFOPATH=$INFOPATH:/usr/local/texlive/2013/texmf/doc/info
@@ -63,57 +68,25 @@ export PATH=/usr/local/texlive/2013/bin/i386-linux/:$PATH
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    PATH="$HOME/bin:$PATH"
+#### time
+REPORTTIME=8                    # CPUを8秒以上使った時は time を表示
+TIMEFMT="\
+    The name of this job.             :%J
+    CPU seconds spent in user mode.   :%U
+    CPU seconds spent in kernel mode. :%S
+    Elapsed time in seconds.          :%E
+    The  CPU percentage.              :%P"
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
-# nocorrects
-alias git='nocorrect git'
-alias knife='nocorrect knife'
-
-# alias
-alias mew="emacs -e mew &"
-alias todo="emacs ~/Dropbox/Todo/todo.txt &"
-alias note="emacs ~/Dropbox/Note/index.org &"
-alias memo="emacs ~/Dropbox/Note/index.org &"
-
-alias td="todo.sh"
-alias tdls="todo.sh ls"
-alias tdlsa="todo.sh ls '(A)'"
-alias tda="todo.sh add"
-alias tddo="todo.sh do"
-
-alias firefox="firefox >& /dev/null"
-
-alias pdfviewer='evince'
-alias imageviewer='eog'
-
-# # Aliases for Ruby
-# # see: http://ryan.mcgeary.org/2011/02/09/vendor-everything-still-applies/
-alias b="bundle"
-alias bi="b install --path=vendor/bundle --binstubs=vendor/bin"
-alias binit="bi && b package --all && echo 'vendor/bundle' >> .gitignore"
-alias bil="bi --local"
-alias bu="b update"
-alias be="b exec"
-alias bb="b binstubs"
-
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-alias ga='git add'
-alias gap='git add -p'
-alias gau='git add -u'
-alias gbr='git branch'
-alias gps='git push --set-upstream origin $(current_branch)'
-alias gci='git commit'
-alias gcim='git commit -m'
-
-alias zshrc='. ~/.zshrc'
-alias vizshrc='vi ~/.zshrc'
-alias vizsh=vizshrc
-
+# global aliases
 alias -g L="| $PAGER"
 alias -g M="| $PAGER"
 alias -g G='| grep'
@@ -123,48 +96,7 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g S='| sort'
 
-function google() {
-  local str opt 
-  if [ $# != 0 ]; then # 引数が存在すれば
-    for i in $*; do
-      str="$str+$i"
-    done    
-    str=`echo $str | sed 's/^\+//'` #先頭の「+」を削除
-    opt='search?num=50&hl=en&ie=utf-8&oe=utf-8&lr=lang_en'
-    opt="${opt}&q=${str}"
-  fi
-  firefox http://www.google.co.jp/$opt #引数がなければ $opt は空になる
-  # mozilla -remote openURL\(http::/www.google.co.jp/$opt\) # 未テスト
-}
-alias ggl=google
-
 function emacs() {command emacs $* &}
 alias em=emacs
 
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
-
-function rm() {
-  if [ -d ~/.trash ]; then
-    local DATE=`date "+%y%m%d-%H%M%S"`
-    mkdir ~/.trash/$DATE
-    for i in $@; do
-      # 対象が ~/.trash/ 以下なファイルならば /bin/rm を呼び出したいな
-      if [ -e $i ]; then
-        mv $i ~/.trash/$DATE/
-      else 
-        echo "$i : not found"
-      fi
-    done
-  else
-    /bin/rm $@
-  fi
-}
-
-#### time
-REPORTTIME=8                    # CPUを8秒以上使った時は time を表示
-TIMEFMT="\
-    The name of this job.             :%J
-    CPU seconds spent in user mode.   :%U
-    CPU seconds spent in kernel mode. :%S
-    Elapsed time in seconds.          :%E
-    The  CPU percentage.              :%P"
