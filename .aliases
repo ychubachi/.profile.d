@@ -102,11 +102,6 @@ alias zshrc='. ~/.zshrc'
 alias vizshrc='vi ~/.zshrc'
 alias vizsh=vizshrc
 
-
-# nocorrects
-alias git='nocorrect git'
-alias knife='nocorrect knife'
-
 function google() {
   local str opt 
   if [ $# != 0 ]; then # 引数が存在すれば

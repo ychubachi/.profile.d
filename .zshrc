@@ -100,3 +100,8 @@ function emacs() {command emacs $* &}
 alias em=emacs
 
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
+
+# nocorrects
+alias git='nocorrect git'
+alias knife='nocorrect knife'
+

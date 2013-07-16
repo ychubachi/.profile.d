@@ -119,8 +119,10 @@ $ \[\033[0m\]"
 PROMPT_COMMAND="custom_prompt_command"
 
 # for rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+if [ -d $HOME/.rbenv/bin ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+    eval "$(rbenv init -)"
+fi
 
 # For livetex
 export MANPATH=$MANPATH:/usr/local/texlive/2012/texmf/doc/man
