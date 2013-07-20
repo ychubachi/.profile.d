@@ -25,22 +25,25 @@ alias mozc-config="/usr/lib/mozc/mozc_tool -mode=config_dialog"
 alias mozc-dict="/usr/lib/mozc/mozc_tool --mode=dictionary_tool"
 
 # Aliases for git
-alias gco="git checkout"
-alias gst="git status"
-alias gci="git add . && git commit -a -m"
-alias gdf="git diff"
-alias gbr="git branch"
 alias gad="git add"
-alias gmr="git merge"
+alias gap='git add -p'
+alias gau='git add -u'
+alias gbr='git branch'
+alias gci='git commit'
+alias gcim='git commit -m'
+alias gco="git checkout"
+alias gdf="git diff"
 alias glg="git log"
-alias gps="git push"
+alias gmr="git merge"
+alias gps='git push --set-upstream origin $(current_branch)'
 alias greset="git reset --hard HEAD^"
+alias gst="git status"
 
 # alias
-alias mew="emacs -e mew &"
-alias todo="emacs ~/Dropbox/Todo/todo.txt &"
-alias note="emacs ~/Dropbox/Note/index.org &"
-alias memo="emacs ~/Dropbox/Note/index.org &"
+alias mew="/usr/local/bin/emacs -e mew &"
+alias todo="/usr/local/bin/emacs -nw ~/Dropbox/Todo/todo.txt"
+alias note="/usr/local/bin/emacs -nw ~/Dropbox/Note/index.org"
+alias memo=note
 
 alias td="todo.sh"
 alias tdls="todo.sh ls"
@@ -48,7 +51,7 @@ alias tdlsa="todo.sh ls '(A)'"
 alias tda="todo.sh add"
 alias tddo="todo.sh do"
 
-alias firefox="firefox >& /dev/null"
+alias firefox="firefox >& /dev/null &"
 
 alias pdfviewer='evince'
 alias imageviewer='eog'
@@ -60,8 +63,6 @@ alias bi="b install --path=vendor/bundle --binstubs=vendor/bin"
 alias binit="bi && b package --all && echo 'vendor/bundle' >> .gitignore"
 alias bil="bi --local"
 alias bu="b update"
-alias be="b exec"
-alias bb="b binstubs"
 
 # creating a new app.
 function rails_new() {
@@ -73,30 +74,7 @@ function rails_new() {
     rails new $1 --skip-bundle --skip-test-unit # --edge
 }
 
-alias term="gnome-terminal"
-
-# tools with emacs
-alias todo="emacs -nw ~/Dropbox/todo/todo.txt"
-alias note="emacs -nw ~/Dropbox/note/index.org"
-
-alias tdls="todo.sh ls"
-alias tdlsa="todo.sh ls '(A)'"
-alias tda="todo.sh add"
-alias tddo="todo.sh do"
-
-alias mew="emacs -e mew &"
-
 alias firefox="firefox >& /dev/null"
-
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
-alias gad='git add'
-alias gap='git add -p'
-alias gau='git add -u'
-alias gbr='git branch'
-alias gps='git push --set-upstream origin $(current_branch)'
-alias gci='git commit'
-alias gcim='git commit -m'
 
 alias zshrc='. ~/.zshrc'
 alias vizshrc='vi ~/.zshrc'
