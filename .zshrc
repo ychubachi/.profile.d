@@ -96,7 +96,11 @@ alias -g H='| head'
 alias -g T='| tail'
 alias -g S='| sort'
 
-function emacs() {command emacs $* &}
+if [ -d /Applications/Emacs.app ]; then
+    function emacs() { open /Applications/Emacs.app }
+else
+    function emacs() { command emacs $* & }
+fi
 alias em=emacs
 
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
