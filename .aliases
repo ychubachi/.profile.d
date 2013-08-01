@@ -42,8 +42,8 @@ alias gst="git status"
 
 # alias
 alias mew="/usr/local/bin/emacs -e mew &"
-alias todo="/usr/local/bin/emacs -nw ~/Dropbox/Todo/todo.txt"
-alias note="/usr/local/bin/emacs -nw ~/Dropbox/Note/index.org"
+alias todo="/usr/local/bin/emacs ~/Dropbox/Todo/todo.txt &"
+alias note="/usr/local/bin/emacs ~/Dropbox/Note/index.org &"
 alias memo=note
 
 alias td="todo.sh"
@@ -80,6 +80,8 @@ alias firefox="firefox >& /dev/null"
 alias zshrc='. ~/.zshrc'
 alias vizshrc='vi ~/.zshrc'
 alias vizsh=vizshrc
+alias vialiases='vi ~/.aliases'
+alias vialias=vialias
 
 function google() {
   local str opt 
