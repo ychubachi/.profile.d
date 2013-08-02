@@ -99,9 +99,11 @@ alias -g S='| sort'
 if [ -d /Applications/Emacs.app ]; then
     function emacs() { open /Applications/Emacs.app }
 else
-    function emacs() { command emacs $* & }
+    function emacs() { command emacsclient -c -a "" $* & }
+    function vim()   { command emacsclient -t -a "" $* }
 fi
 alias em=emacs
+alias vi=vim
 
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
 
