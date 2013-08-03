@@ -101,6 +101,7 @@ if [ -d /Applications/Emacs.app ]; then
 else
     function emacs() { command emacsclient -c -a "" $* & }
     function vim()   { command emacsclient -t -a "" $* }
+    function killemacs() { command emacsclient -e "(kill-emacs)"}
 fi
 alias em=emacs
 alias vi=vim
