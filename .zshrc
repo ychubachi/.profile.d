@@ -65,8 +65,8 @@ export INFOPATH=$INFOPATH:/usr/local/texlive/2013/texmf/doc/info
 export PATH=/usr/local/texlive/2013/bin/i386-linux/:$PATH
 
 # for rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+export RBENV_ROOT=~/.rbenv # Mac?
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #### time
 REPORTTIME=8                    # CPUを8秒以上使った時は time を表示
