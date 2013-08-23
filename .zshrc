@@ -64,6 +64,10 @@ export MANPATH=$MANPATH:/usr/local/texlive/2013/texmf/doc/man
 export INFOPATH=$INFOPATH:/usr/local/texlive/2013/texmf/doc/info
 export PATH=/usr/local/texlive/2013/bin/i386-linux/:$PATH
 
+# For JDK1.7
+export JAVA_HOME="$HOME/opt/jdk1.7"
+export PATH="$JAVA_HOME/bin:$PATH"
+
 # for rbenv
 export RBENV_ROOT=~/.rbenv # Mac?
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
