@@ -137,3 +137,6 @@ export ANDROID_HOME=/home/yc/opt/android-sdk-linux
 # PATH
 export PATH=/home/yc/opt/Titanium_Studio:$PATH
 export PATH=/home/yc/opt/apache-maven-3.0.5/bin:$PATH
+
+# added by travis gem
+source /home/yc/.travis/travis.sh

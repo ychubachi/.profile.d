@@ -35,7 +35,7 @@ export UPDATE_ZSH_DAYS=13
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
+DISABLE_CORRECTION="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -117,3 +117,17 @@ function dotpng() {command dot -Tpng $1.dot -o $1.png}
 # nocorrects
 alias git='nocorrect git'
 alias knife='nocorrect knife'
+
+# added by travis gem
+source /home/yc/.travis/travis.sh
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+### Amazon EC2
+export EC2_HOME=$HOME/opt/ec2-api-tools-1.6.9.0
+export PATH=$PATH:$EC2_HOME/bin
+
+if [ -f ~/bin/aws_env.sh ]; then
+    source ~/bin/aws_env.sh
+fi
