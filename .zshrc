@@ -97,7 +97,9 @@ alias -g T='| tail'
 alias -g S='| sort'
 
 if [ -d /Applications/Emacs.app ]; then
-    function emacs() { open /Applications/Emacs.app $* }
+    function emacs() {
+        /Applications/Emacs.app/Contents/MacOS/Emacs -r $* &
+    }
 else
     function emacs() { command emacsclient -c -a "" $* & }
     function vim()   { command emacsclient -t -a "" $* }
