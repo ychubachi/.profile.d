@@ -48,11 +48,15 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-exstras ruby rails rbenv git-flow gem capistrano command-not-found vagrant)
+plugins=(git git-exstras ruby rails rbenv git-flow git-hubflow gem capistrano command-not-found vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
+
+# set predict-on
+autoload predict-on
+predict-on
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -113,10 +117,6 @@ alias em=emacs
 alias vi=vim
 
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
-
-# nocorrects
-alias git='nocorrect git'
-alias knife='nocorrect knife'
 
 # added by travis gem
 source /home/yc/.travis/travis.sh
