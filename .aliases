@@ -41,9 +41,9 @@ alias greset="git reset --hard HEAD^"
 alias gst="git status"
 
 # alias
-alias mew="/usr/local/bin/emacs -e mew &"
-alias todo="/usr/local/bin/emacs ~/Dropbox/Todo/todo.txt &"
-alias note="/usr/local/bin/emacs ~/Dropbox/Note/index.org &"
+alias mew="emacs -e mew &"
+alias todo="emacs ~/Dropbox/Todo/todo.txt &"
+alias note="emacs ~/Dropbox/Note/index.org &"
 alias memo=note
 
 alias td="todo.sh"
