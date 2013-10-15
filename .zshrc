@@ -54,10 +54,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
-# set predict-on
-autoload predict-on
-predict-on
-
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
