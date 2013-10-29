@@ -115,7 +115,9 @@ alias vi=vim
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
 
 # added by travis gem
-source /home/yc/.travis/travis.sh
+if [ -d ~/.travis ]; then
+    source ~/.travis/travis.sh
+fi
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
