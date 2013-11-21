@@ -65,7 +65,7 @@ export INFOPATH=$INFOPATH:/usr/local/texlive/2013/texmf/doc/info
 export PATH=/usr/local/texlive/2013/bin/i386-linux/:$PATH
 
 # For JDK1.7
-export JAVA_HOME="$HOME/opt/jdk1.7"
+export JAVA_HOME="$HOME/opt/jdk1.7.0_45"
 export PATH="$JAVA_HOME/bin:$PATH"
 
 # for rbenv
@@ -129,3 +129,11 @@ export PATH=$PATH:$EC2_HOME/bin
 if [ -f ~/bin/aws_env.sh ]; then
     source ~/bin/aws_env.sh
 fi
+
+### InteliJ IDEA
+export IDEA_HOME=$HOME/opt/ida-IC-129.1359
+export PATH=$PATH:$IDEA_HOME/bin
+
+### Scala
+export SCALA_HOME=$HOME/opt/scala-2.10.3
+export PATH=$PATH:$SCALA_HOME/bin
