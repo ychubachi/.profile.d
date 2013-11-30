@@ -121,21 +121,36 @@ alias -g S='| sort'
 ## Shell functions.
 ## ================================================================
 
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
-    # Do something under Linux platform
-    function emacs() { command emacsclient -c -a "" $* & }
-    function vim()   { command emacsclient -t -a "" $* }
-    function killemacs() { command emacsclient -e "(kill-emacs)"}
-    # Eclipse menu workaround
-    alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
-elif [ "$(uname)" == "Darwin" ]; then
-    # Do something under Mac OS X platform        
-    function emacs() {
-        /Applications/Emacs.app/Contents/MacOS/Emacs -r $* &
-    }
-elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
-    # Do something under Windows NT platform
-fi
+case "$(uname -s)" in
+    Linux*)
+	# Do something under Linux platform
+	echo "Linux"
+	function emacs() { command emacsclient -c -a "" $* & }
+	function vim()   { command emacsclient -t -a "" $* }
+	function killemacs() { command emacsclient -e "(kill-emacs)"}
+	# Eclipse menu workaround
+	alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
+	;;
+    Darwin*)
+	# Do something under Mac OS X platform        
+	echo "Darwin"
+	function emacs() {
+            /Applications/Emacs.app/Contents/MacOS/Emacs -r $* &
+	}
+	;;
+    MINGW32_NT*)
+	# Do something under Windows NT platform
+	echo "MinGW"
+	;;
+    CYGWIN*)
+	# Do something under Cygwin shell
+	echo "Cygwin"
+	;;
+    *)
+	echo "Other"
+	;;
+esac
+
 
 alias em=emacs
 alias vi=vim
