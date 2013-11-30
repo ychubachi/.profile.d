@@ -94,7 +94,6 @@ export PATH=$PATH:$IDEA_HOME/bin
 ## Eclipse
 export ECLIPSE_HOME=$HOME/opt/eclipse
 export PATH=$PATH:$ECLIPSE_HOME
-alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
 
 ## Scala
 export SCALA_HOME=$HOME/opt/scala-2.10.3
@@ -122,14 +121,20 @@ alias -g S='| sort'
 ## Shell functions.
 ## ================================================================
 
-if [ -d /Applications/Emacs.app ]; then
-    function emacs() {
-        /Applications/Emacs.app/Contents/MacOS/Emacs -r $* &
-    }
-else
+if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    # Do something under Linux platform
     function emacs() { command emacsclient -c -a "" $* & }
     function vim()   { command emacsclient -t -a "" $* }
     function killemacs() { command emacsclient -e "(kill-emacs)"}
+    # Eclipse menu workaround
+    alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
+elif [ "$(uname)" == "Darwin" ]; then
+    # Do something under Mac OS X platform        
+    function emacs() {
+        /Applications/Emacs.app/Contents/MacOS/Emacs -r $* &
+    }
+elif [ "$(expr substr $(uname -s) 1 10)" == "MINGW32_NT" ]; then
+    # Do something under Windows NT platform
 fi
 
 alias em=emacs
