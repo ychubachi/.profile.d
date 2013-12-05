@@ -1,4 +1,4 @@
-* .zshrc
+* Usage
   - C-c C-v t で.zshrcファイルを生成します。
   - C-c C-e h o dot-zshrc.sh.htmlを生成します。
 
