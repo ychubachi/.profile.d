@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>dot-zshrc.sh</title>
+<!-- 2013-12-05 木 23:38 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Yoshihide Chubachi" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012  Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">dot-zshrc.sh</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. .zshrc</a></li>
+<li><a href="#sec-2">2. Code</a>
+<ul>
+<li><a href="#sec-2-1">2.1. Settings for oh-my-zsh</a></li>
+<li><a href="#sec-2-2">2.2. User settings</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> .zshrc</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>C-c C-v t で.zshrcファイルを生成します。
+</li>
+<li>C-c C-e l 
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Code</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Settings for oh-my-zsh</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+oh-my-zshが自動で生成したscriptです。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh" id="dot-zshrc"><span style="color: #b0c4de;">echo</span> <span style="color: #ffc1c1;">'~/.zshrc'</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Path to your oh-my-zsh configuration.</span>
+<span style="color: #7fffd4;">ZSH</span>=$<span style="color: #7fffd4;">HOME</span>/.oh-my-zsh
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Set name of the theme to load.</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Look in ~/.oh-my-zsh/themes/</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Optionally, if you set this to "random", it'll load a random theme each</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">time that oh-my-zsh is loaded.</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">ZSH_THEME="random"</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">ZSH_THEME="crunch"</span>
+
+<span style="color: #00ffff;">case</span> <span style="color: #ffc1c1;">"$TERM"</span><span style="color: #00ffff;"> in</span>
+eterm*)
+     <span style="color: #7fffd4;">ZSH_THEME</span>=<span style="color: #ffc1c1;">"robbyrussell"</span>
+    ;;
+*)
+    <span style="color: #7fffd4;">ZSH_THEME</span>=<span style="color: #ffc1c1;">"wedisagree"</span> <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">&#12363;&#12431;&#12356;&#12356;&#12369;&#12393;terminal-mode&#12391;&#20351;&#12360;&#12394;&#12356;&#12539;&#12539;&#12539;</span>
+<span style="color: #fa8072; font-style: italic;">#    </span><span style="color: #ff7f24; font-style: italic;">ZSH_THEME="crunch"</span>
+    ;;
+<span style="color: #00ffff;">esac</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Set to this to use case-sensitive completion</span>
+<span style="color: #7fffd4;">CASE_SENSITIVE</span>=<span style="color: #ffc1c1;">"true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Comment this out to disable bi-weekly auto-update checks</span>
+<span style="color: #7fffd4;">DISABLE_AUTO_UPDATE</span>=<span style="color: #ffc1c1;">"true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Uncomment to change how often before auto-updates occur? (in days)</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">UPDATE_ZSH_DAYS</span>=13
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Uncomment following line if you want to disable colors in ls</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">DISABLE_LS_COLORS="true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Uncomment following line if you want to disable autosetting terminal title.</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">DISABLE_AUTO_TITLE="true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Uncomment following line if you want to disable command autocorrection</span>
+<span style="color: #7fffd4;">DISABLE_CORRECTION</span>=<span style="color: #ffc1c1;">"true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Uncomment following line if you want red dots to be displayed while waiting for completion</span>
+<span style="color: #7fffd4;">COMPLETION_WAITING_DOTS</span>=<span style="color: #ffc1c1;">"true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Uncomment following line if you want to disable marking untracked files under</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">VCS as dirty. This makes repository status check for large repositories much,</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">much faster.</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">DISABLE_UNTRACKED_FILES_DIRTY="true"</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/</span>
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Example format: plugins=(rails git textmate ruby lighthouse)</span>
+<span style="color: #7fffd4;">plugins</span>=(git git-exstras ruby rails rbenv bundler git-flow git-hubflow gem capistrano command-not-found vagrant)
+
+<span style="color: #b0c4de;">source</span> $<span style="color: #7fffd4;">ZSH</span>/oh-my-zsh.sh
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Customize to your needs...</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> User settings</h3>
+<div class="outline-text-3" id="text-2-2">
+<div class="org-src-container">
+
+<pre class="src src-sh" id="dot-zshrc"><span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Application settings including PATHs and other environment vers.</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">set PATH so it includes user's private bin if it exists</span>
+<span style="color: #00ffff;">if</span> [ -d <span style="color: #ffc1c1;">"$HOME/bin"</span> ] ; <span style="color: #00ffff;">then</span>
+    <span style="color: #7fffd4;">PATH</span>=<span style="color: #ffc1c1;">"$HOME/bin:$PATH"</span>
+<span style="color: #00ffff;">fi</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">For livetex</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">MANPATH</span>=$<span style="color: #7fffd4;">MANPATH</span>:/usr/local/texlive/2013/texmf/doc/man
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">INFOPATH</span>=$<span style="color: #7fffd4;">INFOPATH</span>:/usr/local/texlive/2013/texmf/doc/info
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=/usr/local/texlive/2013/bin/i386-linux/:$<span style="color: #7fffd4;">PATH</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">For JDK1.7</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">JAVA_HOME</span>=<span style="color: #ffc1c1;">"$HOME/opt/jdk1.7.0_45"</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=<span style="color: #ffc1c1;">"$JAVA_HOME/bin:$PATH"</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">for rbenv</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">RBENV_ROOT</span>=~/.rbenv <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Mac?</span>
+<span style="color: #00ffff;">if </span><span style="color: #b0c4de;">which</span> rbenv &gt; /dev/null; <span style="color: #00ffff;">then </span><span style="color: #b0c4de;">eval</span> <span style="color: #ffc1c1;">"$(rbenv init -)"</span>; <span style="color: #00ffff;">fi</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Added by the Heroku Toolbelt</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=<span style="color: #ffc1c1;">"/usr/local/heroku/bin:$PATH"</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Amazon EC2</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">EC2_HOME</span>=$<span style="color: #7fffd4;">HOME</span>/opt/ec2-api-tools-1.6.9.0
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=$<span style="color: #7fffd4;">PATH</span>:$<span style="color: #7fffd4;">EC2_HOME</span>/bin
+
+<span style="color: #00ffff;">if</span> [ -f ~/bin/aws_env.sh ]; <span style="color: #00ffff;">then</span>
+    <span style="color: #b0c4de;">source</span> ~/bin/aws_env.sh
+<span style="color: #00ffff;">fi</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">InteliJ IDEA</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">IDEA_HOME</span>=$<span style="color: #7fffd4;">HOME</span>/opt/ida-IC-129.1359
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=$<span style="color: #7fffd4;">PATH</span>:$<span style="color: #7fffd4;">IDEA_HOME</span>/bin
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Eclipse</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">ECLIPSE_HOME</span>=$<span style="color: #7fffd4;">HOME</span>/opt/eclipse
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=$<span style="color: #7fffd4;">PATH</span>:$<span style="color: #7fffd4;">ECLIPSE_HOME</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Scala</span>
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">SCALA_HOME</span>=$<span style="color: #7fffd4;">HOME</span>/opt/scala-2.10.3
+<span style="color: #b0c4de;">export</span> <span style="color: #7fffd4;">PATH</span>=$<span style="color: #7fffd4;">PATH</span>:$<span style="color: #7fffd4;">SCALA_HOME</span>/bin
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Alias definitions.</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+
+<span style="color: #00ffff;">if</span> [ -f ~/.aliases ]; <span style="color: #00ffff;">then</span>
+    . ~/.aliases
+<span style="color: #00ffff;">fi</span>
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">global aliases</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">L</span>=<span style="color: #ffc1c1;">"| $PAGER"</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">M</span>=<span style="color: #ffc1c1;">"| $PAGER"</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">G</span>=<span style="color: #ffc1c1;">'| grep'</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">C</span>=<span style="color: #ffc1c1;">'| xclip'</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">W</span>=<span style="color: #ffc1c1;">'| wc'</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">H</span>=<span style="color: #ffc1c1;">'| head'</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">T</span>=<span style="color: #ffc1c1;">'| tail'</span>
+<span style="color: #b0c4de;">alias</span> -g <span style="color: #7fffd4;">S</span>=<span style="color: #ffc1c1;">'| sort'</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Shell functions.</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+
+<span style="color: #00ffff;">case</span> <span style="color: #ffc1c1;">"$(uname -s)"</span><span style="color: #00ffff;"> in</span>
+    Linux*)
+        <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Do something under Linux platform</span>
+        <span style="color: #b0c4de;">echo</span> <span style="color: #ffc1c1;">"Linux"</span>
+        <span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">emacs</span>() { command emacsclient -c -a <span style="color: #ffc1c1;">""</span> $<span style="color: #7fffd4;">*</span> &amp; }
+        <span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">vim</span>()   { command emacsclient -t -a <span style="color: #ffc1c1;">""</span> $<span style="color: #7fffd4;">*</span> }
+        <span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">killemacs</span>() { command emacsclient -e <span style="color: #ffc1c1;">"(kill-emacs)"</span>}
+        <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Eclipse menu workaround</span>
+        <span style="color: #b0c4de;">alias</span> <span style="color: #7fffd4;">eclipse</span>=<span style="color: #ffc1c1;">'UBUNTU_MENUPROXY=0 eclipse'</span>
+        ;;
+    Darwin*)
+        <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Do something under Mac OS X platform        </span>
+        <span style="color: #b0c4de;">echo</span> <span style="color: #ffc1c1;">"Darwin"</span>
+        <span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">emacs</span>() {
+            /Applications/Emacs.app/Contents/MacOS/Emacs -r $<span style="color: #7fffd4;">*</span> &amp;
+        }
+        ;;
+    MINGW32_NT*)
+        <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Do something under Windows NT platform</span>
+        <span style="color: #b0c4de;">echo</span> <span style="color: #ffc1c1;">"MinGW"</span>
+        ;;
+    CYGWIN*)
+        <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">Do something under Cygwin shell</span>
+        <span style="color: #b0c4de;">echo</span> <span style="color: #ffc1c1;">"Cygwin"</span>
+        ;;
+    *)
+        <span style="color: #b0c4de;">echo</span> <span style="color: #ffc1c1;">"Other"</span>
+        ;;
+<span style="color: #00ffff;">esac</span>
+
+
+<span style="color: #b0c4de;">alias</span> <span style="color: #7fffd4;">em</span>=emacs
+<span style="color: #b0c4de;">alias</span> <span style="color: #7fffd4;">vi</span>=vim
+
+<span style="color: #00ffff;">function</span> <span style="color: #00fa9a; font-size: 110%; font-weight: bold;">dotpng</span>() {command dot -Tpng $<span style="color: #7fffd4;">1</span>.dot -o $<span style="color: #7fffd4;">1</span>.png}
+
+<span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">added by travis gem</span>
+<span style="color: #00ffff;">if</span> [ -d ~/.travis ]; <span style="color: #00ffff;">then</span>
+    <span style="color: #b0c4de;">source</span> ~/.travis/travis.sh
+<span style="color: #00ffff;">fi</span>
+
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">Time</span>
+<span style="color: #fa8072; font-style: italic;">## </span><span style="color: #ff7f24; font-style: italic;">================================================================</span>
+
+<span style="color: #7fffd4;">REPORTTIME</span>=8                    <span style="color: #fa8072; font-style: italic;"># </span><span style="color: #ff7f24; font-style: italic;">CPU&#12434;8&#31186;&#20197;&#19978;&#20351;&#12387;&#12383;&#26178;&#12399; time &#12434;&#34920;&#31034;</span>
+<span style="color: #7fffd4;">TIMEFMT</span>=<span style="color: #ffc1c1;">"\</span>
+<span style="color: #ffc1c1;">    The name of this job.             :%J</span>
+<span style="color: #ffc1c1;">    CPU seconds spent in user mode.   :%U</span>
+<span style="color: #ffc1c1;">    CPU seconds spent in kernel mode. :%S</span>
+<span style="color: #ffc1c1;">    Elapsed time in seconds.          :%E</span>
+<span style="color: #ffc1c1;">    The  CPU percentage.              :%P"</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Yoshihide Chubachi</p>
+<p class="date">Created: 2013-12-05 木 23:38</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.3.2 (<a href="http://orgmode.org">Org</a> mode N/A-fixup)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
