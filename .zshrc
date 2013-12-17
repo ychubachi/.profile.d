@@ -123,32 +123,32 @@ alias -g S='| sort'
 
 case "$(uname -s)" in
     Linux*)
-	# Do something under Linux platform
-	echo "Linux"
-	function emacs() { command emacsclient -c -a "" $* & }
-	function vim()   { command emacsclient -t -a "" $* }
-	function killemacs() { command emacsclient -e "(kill-emacs)"}
-	# Eclipse menu workaround
-	alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
-	;;
+        # Do something under Linux platform
+        echo "Linux"
+        function emacs() { command emacsclient -c -a "" $* & }
+        function vim()   { command emacsclient -t -a "" $* }
+        function killemacs() { command emacsclient -e "(kill-emacs)"}
+        # Eclipse menu workaround
+        alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
+        ;;
     Darwin*)
-	# Do something under Mac OS X platform        
-	echo "Darwin"
-	function emacs() {
+        # Do something under Mac OS X platform        
+        echo "Darwin"
+        function emacs() {
             /Applications/Emacs.app/Contents/MacOS/Emacs -r $* &
-	}
-	;;
+        }
+        ;;
     MINGW32_NT*)
-	# Do something under Windows NT platform
-	echo "MinGW"
-	;;
+        # Do something under Windows NT platform
+        echo "MinGW"
+        ;;
     CYGWIN*)
-	# Do something under Cygwin shell
-	echo "Cygwin"
-	;;
+        # Do something under Cygwin shell
+        echo "Cygwin"
+        ;;
     *)
-	echo "Other"
-	;;
+        echo "Other"
+        ;;
 esac
 
 
@@ -173,3 +173,7 @@ TIMEFMT="\
     CPU seconds spent in kernel mode. :%S
     Elapsed time in seconds.          :%E
     The  CPU percentage.              :%P"
+
+if [ -f $HOME/.xmodmap ]; then
+    xmodmap $HOME/.xmodmap
+fi

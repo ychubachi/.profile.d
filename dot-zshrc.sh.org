@@ -7,8 +7,8 @@
 
 oh-my-zshが自動で生成したscriptです。
 
-#+name: dot-zshrc
-#+begin_src sh :tangle dot-zshrc.sh :exports yes :noweb yes
+#+name: .zshrc
+#+begin_src sh :tangle .zshrc :exports yes :noweb yes
 echo '~/.zshrc'
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -68,8 +68,8 @@ source $ZSH/oh-my-zsh.sh
 
 ** User settings
 
-#+name: dot-zshrc
-#+begin_src sh :tangle dot-zshrc.sh :exports yes :noweb yes
+#+name: .zshrc
+#+begin_src sh :tangle .zshrc :exports yes :noweb yes
 
 ## ================================================================
 ## Application settings including PATHs and other environment vers.
@@ -191,3 +191,15 @@ TIMEFMT="\
     Elapsed time in seconds.          :%E
     The  CPU percentage.              :%P"
 #+end_src
+
+* xmodmap
+
+#+name: .zshrc
+#+begin_src sh :tangle .zshrc :exports yes :noweb yes
+if [ -f $HOME/.xmodmap ]; then
+    xmodmap $HOME/.xmodmap
+fi
+#+end_src
+
+#+RESULTS: .zshrc
+
