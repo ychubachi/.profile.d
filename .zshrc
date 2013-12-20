@@ -1,3 +1,4 @@
+
 echo '~/.zshrc'
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -125,7 +126,7 @@ case "$(uname -s)" in
     Linux*)
         # Do something under Linux platform
         echo "Linux"
-        function emacs() { command emacsclient -c -a "" $* & }
+        function emacs() { command emacsclient -c -a "" $* }
         function vim()   { command emacsclient -t -a "" $* }
         function killemacs() { command emacsclient -e "(kill-emacs)"}
         # Eclipse menu workaround
