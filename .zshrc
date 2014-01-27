@@ -53,7 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-exstras ruby rails rbenv bundler git-flow git-hubflow gem capistrano command-not-found vagrant)
+plugins=(git git-exstras git-flow git-hubflow github ruby rails rbenv bundler gem capistrano command-not-found vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
