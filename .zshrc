@@ -127,7 +127,7 @@ case "$(uname -s)" in
         # Do something under Linux platform
         echo "Linux"
         function emacs() { command emacsclient -c -a "" $* }
-        function vim()   { command emacsclient -t -a "" $* }
+        # function vim()   { command emacsclient -t -a "" $* }
         function killemacs() { command emacsclient -e "(kill-emacs)"}
         # Eclipse menu workaround
         alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
