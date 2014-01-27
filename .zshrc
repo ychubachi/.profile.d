@@ -12,12 +12,16 @@ ZSH=$HOME/.oh-my-zsh
 
 case "$TERM" in
 eterm*)
-     ZSH_THEME="robbyrussell"
-    ;;
-*)
-    ZSH_THEME="wedisagree" # かわいいけどterminal-modeで使えない・・・
-#    ZSH_THEME="crunch"
-    ;;
+	ZSH_THEME="robbyrussell"
+	;;
+    *)
+	# ZSH_THEME="wedisagree" # かわいいけどterminal-modeで使えない・・・
+	# ZSH_THEME="amuse" # rubyのバージョンが出る
+	# ZSH_THEME="bureau" # 白基調のシンプル．アイコンがわかりづらい？
+	# ZSH_THEME="peepcode" # NG: rvmがないと言われる
+	# ZSH_THEME="pure" # NG: とてもシンプル
+	ZSH_THEME="sonicradish" #ホスト名あり 
+	;;
 esac
 
 # Set to this to use case-sensitive completion
