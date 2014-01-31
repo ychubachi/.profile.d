@@ -9,6 +9,8 @@ oh-my-zshが自動で生成したscriptです。
 
 #+name: .zshrc
 #+begin_src sh :tangle .zshrc :exports yes :noweb yes
+# 注意：このスクリプトはdot-zshrc.orgが自動生成したものです。
+
 echo '~/.zshrc'
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh

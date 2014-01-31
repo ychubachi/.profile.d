@@ -1,4 +1,6 @@
 
+# 注意：このスクリプトはdot-zshrc.orgが自動生成したものです。
+
 echo '~/.zshrc'
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
@@ -53,7 +55,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-exstras git-flow git-hubflow github ruby rails rbenv bundler gem capistrano command-not-found vagrant)
+plugins=(git git-exstras ruby rails rbenv bundler git-flow git-hubflow gem capistrano command-not-found vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -131,7 +133,7 @@ case "$(uname -s)" in
         # Do something under Linux platform
         echo "Linux"
         function emacs() { command emacsclient -c -a "" $* }
-        # function vim()   { command emacsclient -t -a "" $* }
+        function vim()   { command emacsclient -t -a "" $* }
         function killemacs() { command emacsclient -e "(kill-emacs)"}
         # Eclipse menu workaround
         alias eclipse='UBUNTU_MENUPROXY=0 eclipse'
