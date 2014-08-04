@@ -71,9 +71,9 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 ## For livetex
-export MANPATH=$MANPATH:/usr/local/texlive/2013/texmf/doc/man
-export INFOPATH=$INFOPATH:/usr/local/texlive/2013/texmf/doc/info
-export PATH=/usr/local/texlive/2013/bin/i386-linux/:$PATH
+export INFOPATH=$INFOPATH:/usr/local/texlive/2014/texmf-dist/doc/info
+export MANPATH=$MANPATH:/usr/local/texlive/2014/texmf-dist/doc/man
+export PATH=/usr/local/texlive/2014/bin/i386-linux:$PATH
 
 ## For JDK1.7
 export JAVA_HOME="$HOME/opt/jdk1.7.0_45"
