@@ -71,41 +71,55 @@ if [ -d "$HOME/bin" ] ; then
 fi
 
 ## For texlive
-export INFOPATH=$INFOPATH:/usr/local/texlive/2014/texmf-dist/doc/info
-export MANPATH=$MANPATH:/usr/local/texlive/2014/texmf-dist/doc/man
-export PATH=/usr/local/texlive/2014/bin/i386-linux:$PATH
-export PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH # Workaround
+if [ -d /usr/local/texlive/2014/ ]; then
+    export INFOPATH=$INFOPATH:/usr/local/texlive/2014/texmf-dist/doc/info
+    export MANPATH=$MANPATH:/usr/local/texlive/2014/texmf-dist/doc/man
+    export PATH=/usr/local/texlive/2014/bin/i386-linux:$PATH
+    export PATH=/usr/local/texlive/2014/bin/x86_64-linux:$PATH # Workaround
+fi
 
 ## For JDK1.7
-export JAVA_HOME="$HOME/opt/jdk1.7.0_45"
-export PATH="$JAVA_HOME/bin:$PATH"
+if [ -d "$HOME/opt/jdk1.7.0_45" ]; then
+  export JAVA_HOME="$HOME/opt/jdk1.7.0_45"
+  export PATH="$JAVA_HOME/bin:$PATH"
+fi
+
+## Added by the Heroku Toolbelt
+if [ -d /usr/local/heroku/bin ]; then
+    export PATH="/usr/local/heroku/bin:$PATH"
+fi
+
+## Amazon EC2
+if [ -d "$HOME/opt/ec2-api-tools-1.6.9.0" ]; then
+    export EC2_HOME=$HOME/opt/ec2-api-tools-1.6.9.0
+    export PATH=$PATH:$EC2_HOME/bin
+fi
+
+## InteliJ IDEA
+if [ -d $HOME/opt/ida-IC-129.1359 ]; then
+    export IDEA_HOME=$HOME/opt/ida-IC-129.1359
+    export PATH=$PATH:$IDEA_HOME/bin
+fi
+
+## Eclipse
+if [ -d $HOME/opt/eclipse ]; then
+    export ECLIPSE_HOME=$HOME/opt/eclipse
+    export PATH=$PATH:$ECLIPSE_HOME
+fi
+
+## Scala
+if [ -d $HOME/opt/scala-2.10.3 ]; then
+    export SCALA_HOME=$HOME/opt/scala-2.10.3
+    export PATH=$PATH:$SCALA_HOME/bin
+fi
 
 ## for rbenv
 export RBENV_ROOT=~/.rbenv # Mac?
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-## Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-## Amazon EC2
-export EC2_HOME=$HOME/opt/ec2-api-tools-1.6.9.0
-export PATH=$PATH:$EC2_HOME/bin
-
 if [ -f ~/bin/aws_env.sh ]; then
     source ~/bin/aws_env.sh
 fi
-
-## InteliJ IDEA
-export IDEA_HOME=$HOME/opt/ida-IC-129.1359
-export PATH=$PATH:$IDEA_HOME/bin
-
-## Eclipse
-export ECLIPSE_HOME=$HOME/opt/eclipse
-export PATH=$PATH:$ECLIPSE_HOME
-
-## Scala
-export SCALA_HOME=$HOME/opt/scala-2.10.3
-export PATH=$PATH:$SCALA_HOME/bin
 
 ## ================================================================
 ## Alias definitions.
@@ -185,3 +199,15 @@ TIMEFMT="\
 if [ -f $HOME/.xmodmap ]; then
     xmodmap $HOME/.xmodmap
 fi
+
+# Chef
+export PATH=/opt/chefdk/bin:$PATH
+
+# Hub
+eval "$(hub alias -s)"
+
+export NVM_DIR="/home/yc/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Cask
+export PATH="/home/yc/.cask/bin:$PATH"

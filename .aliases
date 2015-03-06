@@ -75,7 +75,13 @@ function rails_new() {
     rails new $1 --skip-bundle --skip-test-unit # --edge
 }
 
-alias firefox="firefox >& /dev/null"
+function firefox() {
+  firefox $1 >& /dev/null &!
+}
+
+function chrome() {
+  google-chrome $1 >& /dev/null &!
+}
 
 alias zshrc='. ~/.zshrc'
 alias vizshrc='vi ~/.zshrc'
