@@ -180,9 +180,6 @@ alias vi=vim
 function dotpng() {command dot -Tpng $1.dot -o $1.png}
 
 # added by travis gem
-if [ -d ~/.travis ]; then
-    source ~/.travis/travis.sh
-fi
 
 ## ================================================================
 ## Time
