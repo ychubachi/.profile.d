@@ -25,10 +25,12 @@ if [ -d $HOME/.rbenv/bin ]; then
     eval "$(rbenv init -)"
 fi
 
-# # For livetex
-# export MANPATH=$MANPATH:/usr/local/texlive/2012/texmf/doc/man
-# export INFOPATH=$INFOPATH:/usr/local/texlive/2012/texmf/doc/info
-# export PATH=/usr/local/texlive/2013/bin/i386-linux/:$PATH
+# For livetex
+if [ -d /usr/local/texlive/2016 ]; then
+    export INFOPATH=$INFOPATH:/usr/local/texlive/2016/texmf-dist/doc/info
+    export MANPATH=$MANPATH:/usr/local/texlive/2016/texmf-dist/doc/man
+    export PATH=$PATH:/usr/local/texlive/2016/bin/x86_64-linux
+fi
 
 # # for JAVA
 # export JAVA_HOME=/home/yc/opt/jdk1.7
