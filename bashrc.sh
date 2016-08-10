@@ -48,3 +48,7 @@ fi
 
 # export NVM_DIR="/home/yc/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+if command -v hub > /dev/null; then
+  eval "$(hub alias -s)"
+fi
