@@ -52,3 +52,27 @@ fi
 if command -v hub > /dev/null; then
   eval "$(hub alias -s)"
 fi
+
+case "$(uname -s)" in
+    Linux*)
+        # echo "Linux"
+	function emacs() {
+	    command emacsclient -c -a "" $*
+	}
+	function killemacs() {
+	    command emacsclient -e "(kill-emacs)"
+	}
+        ;;
+    Darwin*)
+        echo "Darwin"
+        ;;
+    MINGW32_NT*)
+        echo "MinGW"
+        ;;
+    CYGWIN*)
+        echo "Cygwin"
+        ;;
+    *)
+        echo "Other"
+        ;;
+esac
