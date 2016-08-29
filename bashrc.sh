@@ -57,7 +57,7 @@ case "$(uname -s)" in
     Linux*)
         # echo "Linux"
 	function emacs() {
-	    command emacsclient -c -a "" $*
+	    command emacsclient -a "" $*
 	}
 	function killemacs() {
 	    command emacsclient -e "(kill-emacs)"
