@@ -76,3 +76,8 @@ case "$(uname -s)" in
         echo "Other"
         ;;
 esac
+
+# Cask
+if [ -d ~/.cask ]; then
+    export PATH="/home/yc/.cask/bin:$PATH"
+fi
